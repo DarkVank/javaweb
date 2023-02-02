@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--注意：
+        <transactionManager> 、 <dataSource> :后续由spring接管
+
+        <typeAliases>:（传递包限定名）配置基类的别名，默认为类名
+-->
+<configuration>
+
+    <typeAliases>
+        <package name="com.crocodile.pojo"/>
+    </typeAliases>
+    
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+<!--            连接信息-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///xscj?useSSL=false&amp;useServicePrepStmts=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="249174"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+<!--        <mapper resource="com/crocodile/mapper/UserMapper.xml"/>-->
+        
+        <package name="com.crocodile.mapper"/>
+    </mappers>
+</configuration>

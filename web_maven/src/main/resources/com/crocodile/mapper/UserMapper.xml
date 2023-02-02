@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--动态sql
+       处理选填表单数据
+       <if></if>
+       <where></where>:处理if等标签恒等式问题
+       <choose> (when,otherwise)</choose>
+
+       参数传递
+          mybatis：提供ParamNameResolver类进行参数封装
+          1、单个参数
+             pojo：属性名和参数占位符名一致
+             map集合：键名 和 参数占位符名一致（#{}（推荐）//${}）若其中使用pojo类作为值，则#{键名.属性名}
+
+             collection：封装为map集合
+                    map.put("collection",collection集合)
+                    map.put("arg0",collection集合)
+             list：封装为map集合
+                    同上，多  map.put("array",list集合)
+             array：封装为map集合
+                    同上，多  map.put("array",数组)
+
+
+             其他类型
+            2、多个参数
+               封装为map集合（默认）
+               map。put("arg0",参数值1)
+               map。put("param1",参数值1)
+          注：
+             使用（接口方法中）@Param注解修改Map集合中默认的键名，可读性高
+                     selectAll(@Param("username") String username)
+
+-->
+<mapper namespace="com.crocodile.mapper.UserMapper">
+    <select id="selectAll" resultType="User">
+        select * from test;
+    </select>
+</mapper>
