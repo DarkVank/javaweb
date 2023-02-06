@@ -54,7 +54,7 @@ public class Client {
     }
 
     /**
-     * 抽取sqlSessionFactory部分
+     * 抽取sqlSessionFactory部分(通用方法是抽取为工具类：采用单例模式保证获取的sqlSessionFactory是唯一的)
      * @return
      * @throws IOException
      */
